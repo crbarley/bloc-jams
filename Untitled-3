@@ -1,0 +1,4 @@
+Code changes done -> git add -> git commit -> git push origin your-branch
+
+Merge:
+git checkout master -> git merge your-branch -> git commit -> git push originea master
