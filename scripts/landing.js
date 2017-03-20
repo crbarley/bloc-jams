@@ -1,6 +1,6 @@
-var animatePoints = function() {
+var animatePoints = function(points) {
  
-     var points = document.getElementsByClassName('point');
+     var pointsArray = document.getElementsByClassName('point');
  
      var revealFirstPoint = function() {
          points[0].style.opacity = 1;
@@ -28,4 +28,10 @@ var animatePoints = function() {
      revealThirdPoint();
  
  };
+
+window.onload = function () {
+    window.addEventListener('scroll', function(event) {
+        console.log(event);
+    });
+}
 
