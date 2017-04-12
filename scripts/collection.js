@@ -1,4 +1,5 @@
- var collectionItemTemplate =
+var buildCollectionItemTemplate = function () {
+    var template =
      '<div class="collection-album-container column fourth">'
    + '  <img src="assets/images/album_covers/01.png"/>'
    + '  <div class="collection-album-info caption">'
@@ -13,14 +14,19 @@
    + '  </div>'
    + '</div>'
    ;
+    
+    return $(template);
+};
 
-window.onload = function() {
+$(window).load(function() {
     
-    var collecctionContainer = document.getElementsByClassName('album-covers')[0];
+    var $collectionContainer = $('.album-covers');
     
-    collecctionContainer.innerHTML = '';
+    $collectionContainer.empty();
     
     for(var i = 0; i < 12; i++) {
-        collecctionContainer.innerHTML += collectionItemTemplate;
-    }
-}
+        var $newThumbnail = buildCollectionItemTemplate();
+        
+        $collectionContainer.append($newThumbnail);
+        }
+    });
