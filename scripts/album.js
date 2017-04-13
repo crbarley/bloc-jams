@@ -37,8 +37,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
      +  ' <td class = "song-item-title">' + songName + '</td>'
      +  ' <td class = " song-item-duration">' + songLength + '</td>'
-     +  '</tr>'
-    ;
+     +  '</tr>';
     
     return $(template);
 };
@@ -47,7 +46,7 @@ var setCurrentAlbum = function(album) {
     
     var $albumTitle = $('.album-view-title');
     var $albumArtist = $('.album-view-artist');
-    var $albumReleaseInfo = ('.album-view-release-info');
+    var $albumReleaseInfo = $('.album-view-release-info');
     var $albumImage = $('.album-cover-art');
     var $albumSongList = $('.album-view-song-list');
     
@@ -133,13 +132,13 @@ window.onload = function() {
        
        event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
             var songItem = getSongItem(event.target);
+        }
             
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
             songItem.innerHTML = playButtonTemplate;
            }
-            
-        }
-    });
+        });
+    }
     
      for (var i = 0; i < songRows.length; i++) {
          songRows[i].addEventListener('mouseleave', function(event) {
@@ -157,7 +156,6 @@ window.onload = function() {
                clickHandler(event.target);
          });
 
-     }
-};
+     };
 
 
