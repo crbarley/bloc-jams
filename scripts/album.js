@@ -94,11 +94,10 @@ var getSongItem = function(element) {
     }  
 };
 
- var clickHandler = function(targetElement) {
-     
-       var songItem = getSongItem(targetElement); 
-     
-       if (currentlyPlayingSong === null) {
+var clickHandler = function(targetElement) {
+     var songItem = getSongItem(targetElement);
+ 
+     if (currentlyPlayingSong === null) {
          songItem.innerHTML = pauseButtonTemplate;
          currentlyPlayingSong = songItem.getAttribute('data-song-number');
      } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
@@ -123,39 +122,11 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 
  var currentlyPlayingSong = null;
 
-window.onload = function() {
+$(document).ready(function() {
     setCurrentAlbum(albumPicasso);
-    
-    songListContainer.addEventListener('mouseover', function(event) {
-    
-        if (event.target.parentElement.className === 'album-view-song-item') {
-       
-       event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
-            var songItem = getSongItem(event.target);
-        }
-            
-            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
-            songItem.innerHTML = playButtonTemplate;
-           }
-        });
-    }
-    
-     for (var i = 0; i < songRows.length; i++) {
-         songRows[i].addEventListener('mouseleave', function(event) {
-            
-             var songItem = getSongItem(event.target);
-             var songItemNumber = songItem.getAttribute('data-song-number');
-
-             if (songItemNumber !== currentlyPlayingSong) {
-                 songItem.innerHTML = songItemNumber;
-             }
+    for (var i = 0; i < songRows.length; i++) {
+         songRows[i].addEventListener('click', function(event) {
+             clickHandler(event.target);
          });
-         
-           songRows[i].addEventListener('click', function(event) {
-             
-               clickHandler(event.target);
-         });
-
-     };
-
-
+     }
+});
