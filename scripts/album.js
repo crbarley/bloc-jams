@@ -138,7 +138,7 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     
-    $('.main-controls .play-pause').htmml(playerBarPauseButton);
+    $('.main-controls .play-pause').html(playerBarPauseButton);
 
 };
 
