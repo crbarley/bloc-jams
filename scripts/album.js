@@ -42,7 +42,7 @@ var onHover = function(event) {
 
 var offHover = function(event) {
     var songNumberCell = $(this).find('.song-item-number');
-    var songNumber = parseInt(songNumberCell.attr('.data-song-number'));
+    var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
     if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(songNumber);
