@@ -16,7 +16,8 @@ var createSongRow = function(songNumber, songName, songLength) {
      +  '</tr>'
     ;
     var $row = $(template);
-};
+    
+    
 var clickHandler = function() {
 	var songNumber = parseInt($(this).attr('data-song-number'));
 
@@ -62,6 +63,7 @@ currentSongIndex + 1;
     $lastSongNumberCell.html(lastSongNumber);
     
     
+};
 };
 
 var updatePlayerBarSong = function() {
