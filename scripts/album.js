@@ -104,7 +104,8 @@ var nextSong = function() {
     
     var lastSongNumber = parseInt(currentlyPlayingSongNumber);
     
-    setSong(songNumber);
+    currentlyPlayingSongNumber = currentSongIndex + 1;
+    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
     
     updatePlayerBarSong();
     
@@ -123,16 +124,17 @@ var previousSong = function () {
         currentSongIndex = currentAlbum.songs.length - 1;
     }
     
-    var lastSongNumber = parseInt(currentlyPlayingSongNumber);
+    var lastSongNumber = currentlyPlayingSongNumber;
     
-    setSong(songNumber);
+    currentlyPlayingSongNumber = currentSongIndex + 1;
+    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
     
     updatePlayerBarSong();
     
-    $('.main-controls . play-pause').html(playerBarPauseButton);
+    $('.main-controls .play-pause').html(playerBarPauseButton);
     
     var $previousSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
-    var $lastSongNumberCell = $(getSongNumberCellCelll) + lastSongNumber + '"]';
+    var $lastSongNumberCell = getSongNumberCell(lastSongNumber);
     
     $previousSongNumberCell.html(pauseButtonTemplate);
     $lastSongNumberCell.html(lastSongNumber);
